@@ -11,6 +11,11 @@ class ApplicationController < Sinatra::Base
     erb :home
   end
 
+  get '/users' do
+    @users = User.all
+    erb :users
+  end
+
   get '/registrations/signup' do
 
     erb :'/registrations/signup'
@@ -45,7 +50,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/users/home' do
-
     @user = User.find(session[:user_id])
     erb :'/users/home'
   end
